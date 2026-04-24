@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  --color-warm-bg: #fdfaf6;
+  --color-warm-panel: #f5f0e8;
+  --color-warm-canvas: #faf7f2;
+  --color-warm-border: #ddd5c8;
+  --color-warm-muted: #a0907a;
+  --color-warm-text: #2c2416;
+  --color-warm-sub: #6b5a45;
+
+  --color-accent: #c07a3a;
+  --color-accent-hover: #a8672e;
+  --color-accent-light: #fde9c8;
+}
+
+@layer base {
+  html,
+  body {
+    @apply bg-warm-bg text-warm-text;
+  }
+
+  body {
+    font-family:
+      system-ui,
+      -apple-system,
+      "Segoe UI",
+      Roboto,
+      "Helvetica Neue",
+      sans-serif;
+  }
+
+  h1 {
+    @apply text-3xl font-semibold text-warm-text;
+  }
+  h2 {
+    @apply text-2xl font-semibold text-warm-text;
+  }
+  h3 {
+    @apply text-xl font-semibold text-warm-text;
+  }
+
+  a {
+    @apply text-accent hover:text-accent-hover;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  input[type="number"],
+  textarea {
+    @apply w-full rounded-md border border-warm-border bg-warm-canvas px-3 py-2 text-warm-text placeholder:text-warm-muted focus:border-accent focus:outline-none focus:ring-1 focus:ring-accent;
+  }
+
+  label {
+    @apply mb-1 block text-sm font-medium text-warm-sub;
+  }
+}
+
+@layer components {
+  .btn-primary {
+    @apply inline-flex items-center justify-center rounded-md bg-accent px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-warm-bg disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-secondary {
+    @apply inline-flex items-center justify-center rounded-md border border-warm-border bg-warm-panel px-4 py-2 text-sm font-medium text-warm-text transition-colors hover:bg-warm-canvas focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-warm-bg disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-ghost {
+    @apply inline-flex items-center justify-center rounded-md px-4 py-2 text-sm font-medium text-warm-sub transition-colors hover:bg-warm-panel focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 focus:ring-offset-warm-bg disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .btn-danger {
+    @apply inline-flex items-center justify-center rounded-md border border-red-300 bg-red-50 px-4 py-2 text-sm font-medium text-red-700 transition-colors hover:bg-red-100 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-offset-2 focus:ring-offset-warm-bg disabled:cursor-not-allowed disabled:opacity-50;
+  }
+  .panel {
+    @apply rounded-lg border border-warm-border bg-warm-panel p-6;
+  }
+  .card {
+    @apply rounded-lg border border-warm-border bg-warm-canvas p-4 transition-shadow hover:shadow-md;
+  }
+  .badge-in-stock {
+    @apply inline-flex items-center rounded-full bg-accent-light px-2.5 py-0.5 text-xs font-medium text-accent;
+  }
+  .badge-out-of-stock {
+    @apply inline-flex items-center rounded-full bg-warm-border px-2.5 py-0.5 text-xs font-medium text-warm-sub;
+  }
+}

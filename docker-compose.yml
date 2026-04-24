@@ -1,0 +1,12 @@
+services:
+  web:
+    build: .
+    image: demo-website:latest
+    container_name: demo-website
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      NODE_ENV: production
+      API_BASE_URL: "http://host.containers.internal:8000"
+    restart: unless-stopped
