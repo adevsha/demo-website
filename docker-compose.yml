@@ -8,5 +8,12 @@ services:
     environment:
       PORT: "3000"
       NODE_ENV: production
-      API_BASE_URL: "http://host.containers.internal:8000"
+      API_BASE_URL: "http://api:8000"
+    networks:
+      - demo-rest_default
+      - default
     restart: unless-stopped
+
+networks:
+  demo-rest_default:
+    external: true
